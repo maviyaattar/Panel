@@ -254,33 +254,40 @@ function initiateDownload() {
     const btn = document.querySelector('.download-btn');
     const countdown = document.getElementById('countdown');
     let timeLeft = 5;
-    
+
     btn.disabled = true;
     countdown.style.display = 'block';
-    
+
     const timer = setInterval(() => {
-        countdown.textContent = `Download starting in ${timeLeft} seconds...`;
+        countdown.textContent = `Redirecting to offer in ${timeLeft} seconds...`;
         timeLeft--;
-        
-        if(timeLeft < 0) {
+
+        if (timeLeft < 0) {
             clearInterval(timer);
-            countdown.textContent = 'Downloading...';
-            // Simulating file download
-            const link = document.createElement('a');
-            link.href = 'https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file';
-            link.download = 'https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file'
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
+            countdown.textContent = 'Redirecting to offer...';
+
+            // Redirect to Adsterra URL
+            window.location.href = "https://www.profitablecpmrate.com/mkr8k3m5g?key=b38a0ae3ea6551ee73323a49ca64bd2e";
+
+            // After Adsterra, trigger the main download
             setTimeout(() => {
-                btn.disabled = false;
-                countdown.style.display = 'none';
-            }, 2000);
+                countdown.textContent = 'Starting download...';
+
+                const link = document.createElement('a');
+                link.href = 'https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file';
+                link.download = 'GODFF_PAID_PANEL_NORECOIL_AIMBOT_';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                setTimeout(() => {
+                    btn.disabled = false;
+                    countdown.style.display = 'none';
+                }, 2000);
+            }, 5000); // Wait for 5 seconds (time for Adsterra page)
         }
     }, 1000);
-}
-
+  }
 // Resize handler
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
