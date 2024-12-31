@@ -1,168 +1,64 @@
-<html><head><base href="." /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free Fire Hacks & Mods Download Panel</title>
+<html><head><base href="/">
+<title>Maviya's Free Fire Headshot Panel - Ultimate Hack</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 :root {
-  --neon-green: #0ff;
-  --dark-bg: #0a0a0a;
-  --matrix-green: #00ff00;
+  --neon-green: #0f0;
+  --dark-bg: #000;
+  --matrix-effect: #0f0;
 }
 
 body {
-  background-color: var(--dark-bg);
-  color: var(--neon-green);
-  font-family: 'Courier New', monospace;
   margin: 0;
-  padding: 20px;
-  min-height: 100vh;
+  padding: 0;
+  background: var(--dark-bg);
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--neon-green);
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.logo {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 20px;
-  display: block;
-  filter: drop-shadow(0 0 10px var(--neon-green));
-}
-
-.logo-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.glitch-title {
+.glitch-header {
   font-size: 3em;
+  text-align: center;
+  position: relative;
   text-shadow: 2px 2px 10px var(--neon-green);
   animation: glitch 1s infinite;
 }
 
-.hacker-intro {
+.developer-tag {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: -20px;
+  opacity: 0;
+  animation: fadeIn 1s ease 2s forwards;
+}
+
+.intro-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--dark-bg);
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  animation: fadeOut 2s ease-in forwards;
-  animation-delay: 6s;
+  animation: fadeOut 1s ease 3s forwards;
 }
 
-.hacker-text {
-  font-size: 5em;
+.intro-text {
+  font-size: 3em;
   color: var(--neon-green);
-  position: relative;
-  font-family: 'Courier New', monospace;
-}
-
-.hacker-text span {
   opacity: 0;
-  display: inline-block;
-  animation: typeIn 0.5s forwards;
-  text-shadow: 0 0 10px var(--neon-green);
-}
-
-.scan-line {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--neon-green);
-  animation: scan 2s linear infinite;
-}
-
-.password-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.password-content {
-  background: var(--dark-bg);
-  padding: 30px;
-  border: 2px solid var(--neon-green);
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-  animation: modalPulse 2s infinite;
-}
-
-.password-input {
-  background: transparent;
-  border: 2px solid var(--neon-green);
-  color: var(--neon-green);
-  padding: 10px;
-  margin: 10px 0;
-  font-family: 'Courier New', monospace;
-  font-size: 1.2em;
-  text-align: center;
-  width: 200px;
-}
-
-.password-submit {
-  background: transparent;
-  border: 2px solid var(--neon-green);
-  color: var(--neon-green);
-  padding: 10px 20px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-family: 'Courier New', monospace;
-  transition: all 0.3s ease;
-}
-
-.password-submit:hover {
-  background: var(--neon-green);
-  color: var(--dark-bg);
-}
-
-@keyframes modalPulse {
-  0% { box-shadow: 0 0 10px var(--neon-green); }
-  50% { box-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green); }
-  100% { box-shadow: 0 0 10px var(--neon-green); }
-}
-
-@keyframes scan {
-  0% { top: 0; }
-  100% { top: 100%; }
-}
-
-@keyframes typeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    text-shadow: 0 0 20px var(--neon-green);
-  }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { 
-    opacity: 0;
-    visibility: hidden;
-  }
+  animation: typeWriter 2s steps(20) 0.5s forwards;
 }
 
 .matrix-bg {
@@ -172,38 +68,69 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  opacity: 0.1;
+  opacity: 0.3;
 }
 
-.download-card {
-  background: rgba(0, 255, 0, 0.1);
-  border: 1px solid var(--neon-green);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-}
-
-.download-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-green);
-}
-
-.btn-download {
-  background: transparent;
+.download-section {
+  background: rgba(0, 20, 0, 0.8);
   border: 2px solid var(--neon-green);
-  color: var(--neon-green);
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 0 20px var(--neon-green);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.8s ease 3.5s forwards;
 }
 
-.btn-download:hover {
+.download-btn {
+  background: transparent;
+  color: var(--neon-green);
+  border: 2px solid var(--neon-green);
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Share Tech Mono', monospace;
+  display: block;
+  margin: 20px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-btn:hover {
   background: var(--neon-green);
   color: var(--dark-bg);
+  box-shadow: 0 0 30px var(--neon-green);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.feature-list li:nth-child(1) { animation-delay: 4s; }
+.feature-list li:nth-child(2) { animation-delay: 4.2s; }
+.feature-list li:nth-child(3) { animation-delay: 4.4s; }
+.feature-list li:nth-child(4) { animation-delay: 4.6s; }
+.feature-list li:nth-child(5) { animation-delay: 4.8s; }
+.feature-list li:nth-child(6) { animation-delay: 5s; }
+
+.feature-list li:before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  color: var(--neon-green);
 }
 
 @keyframes glitch {
@@ -215,92 +142,89 @@ body {
   100% { transform: translate(0) }
 }
 
-.warning {
-  color: #ff0000;
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes typeWriter {
+  from { width: 0; opacity: 1; }
+  to { width: 100%; opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.scanning {
+  height: 4px;
+  width: 100%;
+  background: var(--neon-green);
+  position: fixed;
+  top: 0;
+  animation: scan 3s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0) }
+  100% { transform: translateY(100vh) }
 }
 </style>
 </head>
 <body>
 
-<div class="password-modal" id="passwordModal">
-  <div class="password-content">
-    <h2>Enter Access Code</h2>
-    <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
-    <button class="password-submit" onclick="checkPassword()">ACCESS</button>
-  </div>
+<div class="intro-overlay">
+  <div class="intro-text">System: Maviya</div>
 </div>
 
-<div class="hacker-intro">
-  <div class="scan-line"></div>
-  <div class="hacker-text"></div>
-</div>
-
-<canvas id="matrix" class="matrix-bg"></canvas>
+<div class="scanning"></div>
+<canvas class="matrix-bg" id="matrix"></canvas>
 
 <div class="container">
-  <header class="header">
-    <div class="logo">
-      <svg class="logo-svg" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="none" stroke="#0ff" stroke-width="2"/>
-        <text x="50" y="60" text-anchor="middle" fill="#0ff" font-size="24">GOD FF</text>
-      </svg>
-    </div>
-    <h1 class="glitch-title">Free Fire Mod Panel</h1>
-    <p>Download exclusive mod files and hacks</p>
-  </header>
-
-  <div class="warning">
-    ⚠️ DISCLAIMER: Use these mods at your own risk. We are not responsible for any account bans.
-  </div>
-
-  <div class="download-card">
-    <h2>🎯 Aimbot Panel v2.0</h2>
-    <p>Advanced targeting system with customizable settings</p>
-    <a href="https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file" class="btn-download">DOWNLOAD</a>
-  </div>
-
-
-  <div class="download-card">
-    <h2>🎮 Auto Headshot v4.0</h2>
-    <p>Automatic headshot targeting system</p>
-    <a href="https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file" class="btn-download">DOWNLOAD</a>
-  </div>
-
-  <div class="download-card">
-    <h2>⚡ All-In-One Mod Pack v5.0</h2>
-    <p>Complete package including Aimbot, ESP, Auto Headshot and more advanced features</p>
-    <a href="https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file" class="btn-download">DOWNLOAD</a>
+  <h1 class="glitch-header">FREE FIRE HEADSHOT PANEL</h1>
+  <div class="developer-tag">Created by Maviya</div>
+  
+  <div class="download-section">
+    <h2>⚡ Ultimate Headshot Hack Panel v2.0 ⚡</h2>
+    <ul class="feature-list">
+      <li>Auto Headshot Targeting System</li>
+      <li>Enhanced Aim Assist</li>
+      <li>Recoil Control Algorithm</li>
+      <li>Smart Player Detection</li>
+      <li>Anti-Ban Protection</li>
+      <li>Smooth Performance Optimization</li>
+    </ul>
+    
+    <button class="download-btn" onclick="initiateDownload()">DOWNLOAD NOW</button>
+    <p id="countdown" style="text-align: center; display: none;"></p>
   </div>
 </div>
 
 <script>
-// Password functionality
-function checkPassword() {
-    const password = document.getElementById('passwordInput').value;
-    if(password === '0706') {
-        document.getElementById('passwordModal').style.display = 'none';
-    } else {
-        alert('Invalid password! Access denied.');
-        document.getElementById('passwordInput').value = '';
-    }
-}
-
-// Matrix rain effect
+// Matrix Rain Effect
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
-const charArr = chars.split('');
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
 const fontSize = 14;
 const columns = canvas.width/fontSize;
-const drops = [];
 
+let drops = [];
 for(let x = 0; x < columns; x++) {
     drops[x] = 1;
 }
@@ -309,11 +233,11 @@ function drawMatrix() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    ctx.fillStyle = '#0F0';
+    ctx.fillStyle = '#0f0';
     ctx.font = fontSize + 'px monospace';
-
+    
     for(let i = 0; i < drops.length; i++) {
-        const text = charArr[Math.floor(Math.random() * charArr.length)];
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
         ctx.fillText(text, i*fontSize, drops[i]*fontSize);
         
         if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
@@ -323,49 +247,44 @@ function drawMatrix() {
     }
 }
 
-setInterval(drawMatrix, 50);
+setInterval(drawMatrix, 33);
+
+// Download Function
+function initiateDownload() {
+    const btn = document.querySelector('.download-btn');
+    const countdown = document.getElementById('countdown');
+    let timeLeft = 5;
+    
+    btn.disabled = true;
+    countdown.style.display = 'block';
+    
+    const timer = setInterval(() => {
+        countdown.textContent = `Download starting in ${timeLeft} seconds...`;
+        timeLeft--;
+        
+        if(timeLeft < 0) {
+            clearInterval(timer);
+            countdown.textContent = 'Downloading...';
+            // Simulating file download
+            const link = document.createElement('a');
+            link.href = 'https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file';
+            link.download = 'https://www.mediafire.com/file/yrm3pkc03wf7al1/GODFF_PAID_PANEL_NORECOIL_AIMBOT_/file'
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                countdown.style.display = 'none';
+            }, 2000);
+        }
+    }, 1000);
+}
 
 // Resize handler
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-});
-
-// Enhanced Hacker intro animation
-const hackerIntroText = "GOD FF";
-const hackerTextElement = document.querySelector('.hacker-text');
-
-function typeWriter(text, element) {
-    for(let i = 0; i < text.length; i++) {
-        setTimeout(() => {
-            const span = document.createElement('span');
-            span.textContent = text[i];
-            span.style.animationDelay = `${i * 0.3}s`;
-            element.appendChild(span);
-            
-            // Add glitch effect
-            if(Math.random() > 0.7) {
-                setTimeout(() => {
-                    span.style.textShadow = '0 0 20px #0ff';
-                }, Math.random() * 1000);
-            }
-        }, i * 300);
-    }
-}
-
-window.addEventListener('load', () => {
-    typeWriter(hackerIntroText, hackerTextElement);
-});
-
-// Add password check for download buttons
-document.querySelectorAll('.btn-download').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        const password = prompt('Enter password to download:');
-        if(password !== '0706') {
-            e.preventDefault();
-            alert('Invalid password! Access denied.');
-        }
-    });
 });
 </script>
 
